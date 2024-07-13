@@ -1,8 +1,5 @@
-
-//################################################ Jannat Butt 21I-0259     MOAWIZ BIN YAMIN 21I-0323############################################
-
 #include<iostream>
-#include"i210323_i210259.h"
+#include"header.h"
 #include"artic_brid_funs.h"
 #include<fstream>
 #include<string>
