@@ -1,0 +1,73 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
+      - name: Verify pytest installation
+        run: pip show pytest
+
+      - name: Verify test files
+        run: ls -la tests/
+
+      - name: Check pytest version
+        run: pytest --version
+
+      - name: Debug Python Environment
+        run: |
+          python --version
+          pip list
+          echo "Current working directory: $(pwd)"
+          echo "Python path: $PYTHONPATH"
+          ls -la
+          echo "Test file contents:"
+          cat tests/test_homepage.py
+
+      - name: Run tests
+        run: |
+          pytest tests/test_homepage.py --maxfail=1 --disable-warnings -q
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Vercel CLI
+        run: npm install -g vercel
+
+      - name: Deploy to Vercel
+        run: |
+          vercel --prod --confirm -t ${{ secrets.CICDTOKEN }} \
+          -m githubCommitSha=${{ github.sha }} \
+          -m githubCommitAuthorName=${{ github.actor }} \
+          -m githubCommitAuthorLogin=${{ github.actor }} \
+          -m githubDeployment=1 \
+          -m githubOrg=${{ github.repository_owner }} \
+          -m githubRepo=${{ github.repository }} \
+          -m githubCommitOrg=${{ github.repository_owner }} \
+          -m githubCommitRepo=${{ github.repository }} \
+          -m githubCommitMessage="${{ github.event.head_commit.message }}" \
+          -m githubCommitRef=${{ github.ref }}

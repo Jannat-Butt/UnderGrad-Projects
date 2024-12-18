@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /*additional styles for white box behind form*/
+        .form-wrapper {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+    </style>
+</head>
+<body style="background-image: url('{{ url_for('static', filename='house_image.jpg') }}');">
+    <div class="container">
+        <div class="form-wrapper">
+            <div class="form-container">
+                <h1>Predict House Price</h1>
+                <form method="POST" action="{{ url_for('predict') }}">
+                    <div>
+                        <label for="area">Area (sq.ft.):</label>
+                        <input type="text" id="area" name="area" required>
+                    </div>
+                    <div>
+                        <label for="bedrooms">Bedrooms:</label>
+                        <input type="text" id="bedrooms" name="bedrooms" required>
+                    </div>
+                    <div>
+                        <label for="bathrooms">Bathrooms:</label>
+                        <input type="text" id="bathrooms" name="bathrooms" required>
+                    </div>
+                    <div>
+                        <label for="stories">Stories:</label>
+                        <input type="text" id="stories" name="stories" required>
+                    </div>
+                    <div>
+                        <label for="mainroad">Main Road (1/0):</label>
+                        <input type="text" id="mainroad" name="mainroad" required>
+                    </div>
+                    <div>
+                        <label for="guestroom">Guest Room (1/0):</label>
+                        <input type="text" id="guestroom" name="guestroom" required>
+                    </div>
+                    <div>
+                        <label for="basement">Basement (1/0):</label>
+                        <input type="text" id="basement" name="basement" required>
+                    </div>
+                    <div>
+                        <label for="hotwaterheating">Hot Water Heating (1/0):</label>
+                        <input type="text" id="hotwaterheating" name="hotwaterheating" required>
+                    </div>
+                    <div>
+                        <label for="airconditioning">Air Conditioning (1/0):</label>
+                        <input type="text" id="airconditioning" name="airconditioning" required>
+                    </div>
+                    <div>
+                        <label for="parking">Parking Spaces:</label>
+                        <input type="text" id="parking" name="parking" required>
+                    </div>
+                    <div>
+                        <label for="prefarea">Preferred Area (1/0):</label>
+                        <input type="text" id="prefarea" name="prefarea" required>
+                    </div>
+                    <div>
+                        <label for="furnishingstatus">Furnishing Status (1=Furnished, 0=Unfurnished):</label>
+                        <input type="text" id="furnishingstatus" name="furnishingstatus" required>
+                    </div>
+                    <button type="submit">Predict</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

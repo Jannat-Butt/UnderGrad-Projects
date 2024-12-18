@@ -1,0 +1,161 @@
+body {
+    display: flex;
+    /*setting display to flex for body*/
+    justify-content: center;
+    /*aligning items to center horizontally*/
+    align-items: center;
+    /*aligning items to center vertically*/
+    height: 100vh;
+    /*making body full height*/
+    margin: 0;
+    /*removing default margin*/
+    background-size: cover;
+    /*setting background size to cover*/
+    background-position: center;
+    /*centering the background image*/
+    background-repeat: no-repeat;
+    /*preventing background image from repeating*/
+    font-family: Arial, sans-serif;
+    /*setting font family*/
+}
+
+.container, .result-container {
+    display: flex;
+    /*setting display to flex*/
+    flex-direction: column;
+    /*arranging children in a column*/
+    align-items: center;
+    /*aligning items to center horizontally*/
+    justify-content: center;
+    /*aligning items to center vertically*/
+    width: 90%;
+    /*setting width to 90% of parent*/
+    max-width: 400px;
+    /*setting maximum width*/
+    padding: 10px;
+    /*adding padding*/
+    border-radius: 8px;
+    /*rounding corners*/
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    /*adding box shadow*/
+}
+
+h1 {
+    margin-top: 0;
+    /*removing top margin*/
+    font-size: 1.2em;
+    /*setting font size*/
+    text-align: center;
+    /*centering text*/
+}
+
+.form-container, .result-container {
+    width: 100%;
+    /*setting width to 100% of parent*/
+}
+
+.form-container label, .result-container a {
+    display: block;
+    /*displaying as block element*/
+    font-size: 0.8em;
+    /*setting font size*/
+    margin-bottom: 3px;
+    /*adding margin below*/
+}
+
+.form-container input, .result-container a {
+    width: 100%;
+    /*setting width to 100% of parent*/
+    padding: 4px;
+    /*adding padding*/
+    box-sizing: border-box;
+    /*including padding in width*/
+    font-size: 0.8em;
+    /*setting font size*/
+    margin-bottom: 8px;
+    /*adding margin below*/
+}
+
+.form-container button {
+    width: 100%;
+    /*setting width to 100% of parent*/
+    padding: 6px;
+    /*adding padding*/
+    background-color: #4CAF50;
+    /*setting background color*/
+    border: none;
+    /*removing border*/
+    color: white;
+    /*setting text color*/
+    font-size: 0.8em;
+    /*setting font size*/
+    cursor: pointer;
+    /*changing cursor to pointer*/
+    border-radius: 4px;
+    /*rounding corners*/
+    box-sizing: border-box;
+    /*including padding in width*/
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+    /*changing background color on hover*/
+}
+
+.result-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    /*setting background color with opacity*/
+    color: white;
+    /*setting text color*/
+    text-align: center;
+    /*centering text*/
+}
+
+.result-container h1 {
+    font-size: 2em;
+    /*setting font size*/
+    margin: 0;
+    /*removing margin*/
+}
+
+.result-container h2 {
+    font-size: 2.5em;
+    /*setting font size*/
+    margin: 10px 0;
+    /*adding margin above and below*/
+}
+
+.result-container a {
+    text-decoration: none;
+    /*removing underline from links*/
+    color: #00BFFF;
+    /*setting text color for links*/
+    font-size: 1.2em;
+    /*setting font size*/
+    padding: 10px 20px;
+    /*adding padding*/
+    border: 2px solid #00BFFF;
+    /*setting border for links*/
+    border-radius: 5px;
+    /*rounding corners*/
+    background-color: rgba(255, 255, 255, 0.2);
+    /*setting background color with opacity*/
+    transition: background-color 0.3s, color 0.3s;
+    /*adding transition effects*/
+}
+
+.result-container a:hover {
+    background-color: #00BFFF;
+    /*changing background color on hover*/
+    color: #fff;
+    /*changing text color on hover*/
+}
+
+.result-container hr {
+    width: 60%;
+    /*setting width of horizontal rule*/
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    /*setting border for horizontal rule with opacity*/
+    margin: 20px auto;
+    /*adding margin above and below, centering horizontally*/
+}
